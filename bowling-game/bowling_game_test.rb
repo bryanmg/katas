@@ -4,7 +4,5 @@ require_relative 'bowling_game'
 require 'test/unit'
 
 class GameTest < Test::Unit::TestCase
-  def test_cases
-    
-  end
+  def test_cases; end
 end

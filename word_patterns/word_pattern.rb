@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # kata: https://www.codewars.com/kata/562846dd1f77ab7c00000033
 
 def word_pattern(pattern_str, sentence)
@@ -13,5 +14,5 @@ def word_pattern(pattern_str, sentence)
   end
   text.gsub!(/ /, '')
 
-  return text == pattern_str
+  text == pattern_str
 end

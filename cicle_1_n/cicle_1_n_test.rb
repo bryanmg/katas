@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'cicle_1_n'
 require 'test/unit'
 
