@@ -25,8 +25,4 @@ class Permutator
     factors = pattern.scan(REPLACEMENT_CHAR).count
     DIGITS_TO_PERMUTATE.repeated_permutation(factors).to_a.map(&:join)
   end
-  #   permutations_count = pattern.scan('?').count
-  #   permutations = '01'.chars.to_a.repeated_permutation(permutations_count).to_a.map(&:join)
-  #   result = permutations.count.times.map {|perm_idx| pattern.gsub('?').each_with_index{|el, idx| permutations[perm_idx][idx]} }
-  #   result
 end
