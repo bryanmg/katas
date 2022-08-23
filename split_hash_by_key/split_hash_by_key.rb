@@ -1,21 +1,31 @@
+# frozen_string_literal: true
+
 module ExtractData
   def self.split_hash_by_key(data, *args)
-    new_array = []
-    memo_hash = {}
-    args.map do |key|
-      raise ArgumentError unless data.key?(key)
-      data.map do |k, val|
-        if k == key
-          new_array << memo_hash if memo_hash.any?
-          memo_hash = {}
-          memo_hash.merge!({k => val})
-          break
-        end
-        memo_hash.merge!({k => val})
-        data.delete(k)
-      end
+    result = []
+    validate_presence_args!(data, args)
+
+    args.each do |key|
+      chunk, data = split_hash_chunk(data, key)
+      result << chunk if chunk.any?
     end
-    new_array << data
-    new_array
+
+    result << data
+  end
+
+  def self.split_hash_chunk(data, key)
+    chunk = {}
+    data.map do |k, val|
+      break if k == key
+      chunk.merge!({ k => val })
+      data.delete(k)
+    end
+    return chunk, data
+  end
+
+  def self.validate_presence_args!(data, args)
+    args.each do |key|
+      raise StandardError, "#{key} not present in hash" unless data.key?(key)
+    end
   end
 end
