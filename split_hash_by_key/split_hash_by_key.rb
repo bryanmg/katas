@@ -17,10 +17,11 @@ module ExtractData
     chunk = {}
     data.map do |k, val|
       break if k == key
+
       chunk.merge!({ k => val })
       data.delete(k)
     end
-    return chunk, data
+    [chunk, data]
   end
 
   def self.validate_presence_args!(data, args)
