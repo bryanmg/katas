@@ -12,7 +12,7 @@ module ExtractData
     ids_values.flatten
   end
 
-  def self.recursive_find_ids(data)
+  def self.recursive_find_ids(data) #TODO: merge in a single function
     extracted = []
 
     data.map do |key|
