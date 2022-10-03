@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TennisGame1
-  GAMESCORES = { 0 => 'Love', 1 => 'Fifteen', 2 => 'Thirty', 3 => 'Forty' }
+  GAMESCORES = { 0 => 'Love', 1 => 'Fifteen', 2 => 'Thirty', 3 => 'Forty' }.freeze
 
   def initialize(player1Name, player2Name)
     @player1Name = player1Name
@@ -46,7 +46,7 @@ class TennisGame1
 
     return 'Deuce' if result.nil?
 
-    result + '-All'
+    "#{result}-All"
   end
 
   def compound_score(score)
@@ -55,7 +55,7 @@ class TennisGame1
 end
 
 class TennisGame2
-  GAMESCORES = { 1 => 'Fifteen', 2 => 'Thirty', 3 => 'Forty' }
+  GAMESCORES = { 1 => 'Fifteen', 2 => 'Thirty', 3 => 'Forty' }.freeze
 
   def initialize(player1Name, player2Name)
     @player1Name = player1Name
@@ -76,7 +76,7 @@ class TennisGame2
       result = 'Fifteen' if p1points == 1
       result = 'Thirty' if p1points == 2
 
-      return result + '-All'
+      return "#{result}-All"
     else
       result = 'Deuce'
     end
